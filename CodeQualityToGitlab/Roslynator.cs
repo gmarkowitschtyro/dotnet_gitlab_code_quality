@@ -6,19 +6,19 @@ using System.Xml.Serialization;
 public class Diagnostic
 {
     [XmlAttribute(AttributeName = "Id")]
-    public required string Id { get; set; }
+    public string Id { get; set; } = null!;
 
     [XmlAttribute(AttributeName = "Title")]
-    public required string Title { get; set; }
+    public string Title { get; set; } = null!;
 
     [XmlAttribute(AttributeName = "Count")]
-    public required string Count { get; set; }
+    public string Count { get; set; } = null!;
 
     [XmlElement(ElementName = "Severity")]
-    public required string Severity { get; set; }
+    public string Severity { get; set; } = null!;
 
     [XmlElement(ElementName = "Message")]
-    public required string Message { get; set; }
+    public string Message { get; set; } = null!;
 
     [XmlElement(ElementName = "FilePath")]
     public string? FilePath { get; set; }
@@ -31,17 +31,17 @@ public class Diagnostic
 public class Summary
 {
     [XmlElement(ElementName = "Diagnostic")]
-    public required List<Diagnostic> Diagnostic { get; set; } = new();
+    public List<Diagnostic> Diagnostic { get; set; } = new();
 }
 
 [XmlRoot(ElementName = "Location")]
 public class Location
 {
     [XmlAttribute(AttributeName = "Line")]
-    public required string Line { get; set; }
+    public string Line { get; set; } = null!;
 
     [XmlAttribute(AttributeName = "Character")]
-    public required string Character { get; set; }
+    public string Character { get; set; } = null!;
 }
 
 [XmlRoot(ElementName = "Diagnostics")]
@@ -55,13 +55,13 @@ public class Diagnostics
 public class Project
 {
     [XmlElement(ElementName = "Diagnostics")]
-    public required Diagnostics Diagnostics { get; set; }
+    public Diagnostics Diagnostics { get; set; } = null!;
 
     [XmlAttribute(AttributeName = "Name")]
-    public required string Name { get; set; }
+    public string Name { get; set; } = null!;
 
     [XmlAttribute(AttributeName = "FilePath")]
-    public required string FilePath { get; set; }
+    public string FilePath { get; set; } = null!;
 }
 
 [XmlRoot(ElementName = "Projects")]
@@ -75,15 +75,15 @@ public class Projects
 public class CodeAnalysis
 {
     [XmlElement(ElementName = "Summary")]
-    public required Summary Summary { get; set; }
+    public Summary Summary { get; set; } = null!;
 
     [XmlElement(ElementName = "Projects")]
-    public required Projects Projects { get; set; }
+    public Projects Projects { get; set; } = null!;
 }
 
 [XmlRoot(ElementName = "Roslynator")]
 public class Roslynator
 {
     [XmlElement(ElementName = "CodeAnalysis")]
-    public required CodeAnalysis CodeAnalysis { get; set; }
+    public CodeAnalysis CodeAnalysis { get; set; } = null!;
 }
